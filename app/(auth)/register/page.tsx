@@ -12,9 +12,9 @@ import { registerSchema } from "@/validatorSchema";
 import FormError from "@/components/auth/formError";
 import FormSuccess from "@/components/auth/formSuccess";
 import { Checkbox } from "@/components/ui/checkbox";
-// import { register } from "@/actions/register";
+import { register } from "@/actions/register";
 
-export default function SignupForm() {
+export default function RegisterForm() {
   const [isPending, startTransition] = useTransition();
   const [serverError, setServerError] = useState<string | undefined>("");
   const [serverSuccess, setServerSuccess] = useState<string | undefined>("");
@@ -49,11 +49,10 @@ export default function SignupForm() {
 
     // Proceed with form submission logic
     startTransition(() => {
-      // register(formData).then((data) => {
-      //   setServerError(data.error);
-      //   setServerSuccess(data.success);
-      // });
-      console.log("REGISTER FUNCTION");
+      register(formData).then((data) => {
+        setServerError(data.error);
+        setServerSuccess(data.success);
+      });
     });
   };
 

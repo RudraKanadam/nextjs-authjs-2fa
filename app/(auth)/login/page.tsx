@@ -12,7 +12,7 @@ import PasswordInput from "@/components/auth/passwordInput";
 import { loginSchema } from "@/validatorSchema";
 import FormError from "@/components/auth/formError";
 import FormSuccess from "@/components/auth/formSuccess";
-// import { login } from "@/actions/login";
+import { login } from "@/actions/login";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -50,16 +50,15 @@ export default function LoginForm() {
 
     // Proceed with form submission logic
     startTransition(() => {
-      console.log("LOGIN FUNCTION EXECUTION");
-      //   login(formData).then((data) => {
-      //     if (data) {
-      //       setServerError(data.error);
-      //       setServerSuccess(data.success);
-      //       if (data.success && data.redirect) {
-      //         router.push(data.redirect);
-      //       }
-      //     }
-      //   });
+      login(formData).then((data) => {
+        if (data) {
+          setServerError(data.error);
+          setServerSuccess(data.success);
+          if (data.success && data.redirect) {
+            router.push(data.redirect);
+          }
+        }
+      });
     });
   };
 

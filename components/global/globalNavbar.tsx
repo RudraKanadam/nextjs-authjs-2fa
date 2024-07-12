@@ -11,14 +11,20 @@ import {
   ProductItem,
 } from "../ui/navbar-menu";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaTimes } from "react-icons/fa"; // Ensure the correct import
+import { FaTimes } from "react-icons/fa";
+import { useSession } from "next-auth/react";
+import UserDropdownMenu from "./UserDropdownMenu"; // Import the new component
 
 const GlobalNavbar = () => {
+  const { data: session } = useSession();
   const [active, setActive] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed right-0 left-0 top-0 py-4 px-4 bg-transparent backdrop-blur-lg z-[100] flex items-center justify-between">
+    <header
+      className="fixed right-0 left-0 top-0 py-4 px-4 bg-transparent backdrop-blur-lg z-[100] flex items-center justify-between"
+      style={{ height: "50px" }}
+    >
       <Link href="/">
         <aside className="flex items-center gap-[2px]">
           <Image
@@ -87,16 +93,20 @@ const GlobalNavbar = () => {
         </Menu>
       </div>
 
-      <aside className="flex items-center gap-4">
-        <Link
-          href="/login"
-          className="relative inline-flex h-10 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-        >
-          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-300 px-3 py-1 text-sm font-medium text-black backdrop-blur-3xl">
-            Get Started
-          </span>
-        </Link>
+      <aside className="flex items-center gap-4 mr-10">
+        {session?.user ? (
+          <UserDropdownMenu /> // Use the new component
+        ) : (
+          <Link
+            href="/login"
+            className="relative inline-flex h-10 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+          >
+            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-300 px-3 py-1 text-sm font-medium text-black backdrop-blur-3xl">
+              Get Started
+            </span>
+          </Link>
+        )}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"

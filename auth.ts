@@ -56,6 +56,10 @@ const options = {
         session.user.id = token.sub;
       }
 
+      if (token.name && session.user) {
+        session.user.name = token.name;
+      }
+
       if (token.role && session.user) {
         session.user.role = token.role;
       }
@@ -73,6 +77,7 @@ const options = {
     async jwt({ token, user }: { token: any; user: any }) {
       if (user) {
         token.sub = user.id;
+        token.name = user.name;
         token.role = user.role;
         token.subscriptionId = user.subscriptionId;
         token.subscriptionType = user.subscriptionType;
@@ -80,6 +85,7 @@ const options = {
         const existingUser = await getUserById(token.sub);
         if (existingUser) {
           token.role = existingUser.role;
+          token.name = existingUser.name;
           if (existingUser.subscriptionId) {
             const subscription = await db.subscription.findUnique({
               where: { id: existingUser.subscriptionId },

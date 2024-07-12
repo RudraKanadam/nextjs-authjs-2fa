@@ -3,44 +3,13 @@
 import React from "react";
 import {
   LayoutDashboard,
-  SunMedium,
-  Droplet,
-  BarChart3,
-  Video,
-  User,
-  CreditCard,
-  Settings,
-  Keyboard,
-  Users,
-  UserPlus,
-  Mail,
-  MessageSquare,
-  PlusCircle,
-  Plus,
-  Github,
-  LifeBuoy,
-  Cloud,
-  LogOut,
-  Search,
-  DollarSign,
+  Users as UsersIcon,
   ShoppingCart,
   Activity,
-  Users as UsersIcon,
+  DollarSign,
+  Search,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Card,
   CardHeader,
@@ -49,17 +18,16 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import Sidebar from "../_components/sideBar";
+import CustomerSidebar from "../_components/sideBar";
 
 const Dashboard = () => {
   return (
     <div className="flex">
-      <Sidebar />
+      <CustomerSidebar />
       <div className="flex-1 min-h-screen bg-gray-100">
         <main className="p-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold">Dashboard</h1>
-
             <div className="relative mr-10 w-[17%]">
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-500" />
               <Input
@@ -80,7 +48,6 @@ const Dashboard = () => {
                   </CardDescription>
                 </div>
               </CardHeader>
-
               <CardContent>
                 <span className="text-green-500">+20.1% from last month</span>
               </CardContent>
@@ -134,9 +101,9 @@ const Dashboard = () => {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Recent Sales</CardTitle>
+                <CardTitle>Recent Activity</CardTitle>
                 <CardDescription>
-                  You made 265 sales this month.
+                  You have 265 recent activities this month.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -146,35 +113,35 @@ const Dashboard = () => {
                       <p>Olivia Martin</p>
                       <p className="text-gray-500">olivia.martin@email.com</p>
                     </div>
-                    <p className="text-green-500">+$1,999.00</p>
+                    <p className="text-green-500">Completed a project</p>
                   </li>
                   <li className="flex justify-between">
                     <div>
                       <p>Jackson Lee</p>
                       <p className="text-gray-500">jackson.lee@email.com</p>
                     </div>
-                    <p className="text-green-500">+$39.00</p>
+                    <p className="text-green-500">Updated profile</p>
                   </li>
                   <li className="flex justify-between">
                     <div>
                       <p>Isabella Nguyen</p>
                       <p className="text-gray-500">isabella.nguyen@email.com</p>
                     </div>
-                    <p className="text-green-500">+$299.00</p>
+                    <p className="text-green-500">Started a new project</p>
                   </li>
                   <li className="flex justify-between">
                     <div>
                       <p>William Kim</p>
                       <p className="text-gray-500">will@email.com</p>
                     </div>
-                    <p className="text-green-500">+$99.00</p>
+                    <p className="text-green-500">Joined a team</p>
                   </li>
                   <li className="flex justify-between">
                     <div>
                       <p>Sofia Davis</p>
                       <p className="text-gray-500">sofia.davis@email.com</p>
                     </div>
-                    <p className="text-green-500">+$39.00</p>
+                    <p className="text-green-500">Completed a task</p>
                   </li>
                 </ul>
               </CardContent>

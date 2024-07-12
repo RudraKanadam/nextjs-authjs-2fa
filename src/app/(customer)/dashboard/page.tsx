@@ -1,3 +1,5 @@
+// pages/dashboard.jsx
+
 import React from "react";
 import {
   SunMedium,
@@ -19,12 +21,12 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import Sidebar from "../_components/sideBar";
+import InternalSidebar from "../_components/sideBar";
 
 const Dashboard = () => {
   return (
     <div className="flex">
-      <Sidebar />
+      <InternalSidebar />
       <div className="flex-1 min-h-screen bg-gray-100">
         <main className="p-4">
           <div className="flex justify-between items-center">

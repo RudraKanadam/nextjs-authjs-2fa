@@ -5,7 +5,7 @@
  * These routes do not require authentication
  * @type {string[]}
  */
-export const publicRoutes = ["/"];
+export const publicRoutes = ["/", "/internal/dashboard"];
 
 /**
  * An array of routes that are used for authentication
@@ -31,7 +31,7 @@ export const DEFAULT_USER_LOGIN_REDIRECT = "/dashboard";
  * Default redirect admin role route after login
  * @type {string}
  */
-export const DEFAULT_ADMIN_LOGIN_REDIRECT = "/internal/dashboard";
+export const DEFAULT_ADMIN_LOGIN_REDIRECT = "/internal/dashboard-1";
 
 /**
  * Routes accessible by internal users (admin, moderator, etc.)

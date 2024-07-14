@@ -4,12 +4,14 @@ import Link from "next/link";
 import {
   LayoutDashboard,
   Folder,
-  Users,
+  User,
   Settings,
   HelpCircle,
   BookOpen,
   ChevronDown,
   LogOut,
+  Handshake,
+  Headset,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -52,44 +54,20 @@ const CustomerSidebar = () => {
             </Link>
           </li>
           <li>
-            <button
-              onClick={() => toggleDropdown("projects")}
-              className="flex items-center p-4 w-full text-left hover:bg-zinc-100"
-            >
-              <Folder className="mr-2" /> Projects
-              <ChevronDown
-                className={`ml-auto transition-transform ${
-                  openDropdown === "projects" ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-            {openDropdown === "projects" && (
-              <ul className="pl-4">
-                <li>
-                  <Link
-                    href="/projects/active"
-                    className="flex items-center p-4 hover:bg-zinc-100"
-                  >
-                    Active Projects
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/projects/archive"
-                    className="flex items-center p-4 hover:bg-zinc-100"
-                  >
-                    Archived Projects
-                  </Link>
-                </li>
-              </ul>
-            )}
-          </li>
-          <li>
             <Link
-              href="/users"
+              href="/profile"
               className="flex items-center p-4 hover:bg-zinc-100"
             >
-              <Users className="mr-2" /> Users
+              <User className="mr-2" /> Profile
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/team"
+              className="flex items-center p-4 hover:bg-zinc-100"
+            >
+              <Handshake className="mr-2" /> Team
             </Link>
           </li>
           <li className="mt-4 border-t border-gray-300"></li>
@@ -145,7 +123,7 @@ const CustomerSidebar = () => {
                     href="/support/help"
                     className="flex items-center p-4 hover:bg-zinc-100"
                   >
-                    Help Center
+                    <Headset className="mr-2" /> Help Center
                   </Link>
                 </li>
                 <li>

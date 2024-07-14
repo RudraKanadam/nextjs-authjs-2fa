@@ -58,47 +58,6 @@ const UserDropdownMenu = () => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/dashboard">
-              <div className="flex items-center">
-                <LayoutDashboard className="mr-2 h-4 w-4" />
-                <span>Dashboard</span>
-              </div>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/solar">
-              <div className="flex items-center">
-                <SunMedium className="mr-2 h-4 w-4" />
-                <span>Solar</span>
-              </div>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/water">
-              <div className="flex items-center">
-                <Droplet className="mr-2 h-4 w-4" />
-                <span>Water</span>
-              </div>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/camera">
-              <div className="flex items-center">
-                <Video className="mr-2 h-4 w-4" />
-                <span>Camera</span>
-              </div>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/analysis">
-              <div className="flex items-center">
-                <BarChart3 className="mr-2 h-4 w-4" />
-                <span>Analysis</span>
-              </div>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem asChild>
             <Link href="/profile">
               <div className="flex items-center">
                 <User className="mr-2 h-4 w-4" />
@@ -119,14 +78,6 @@ const UserDropdownMenu = () => {
               <div className="flex items-center">
                 <Settings className="mr-2 h-4 w-4" />
                 <span>Settings</span>
-              </div>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/shortcuts">
-              <div className="flex items-center">
-                <Keyboard className="mr-2 h-4 w-4" />
-                <span>Keyboard shortcuts</span>
               </div>
             </Link>
           </DropdownMenuItem>
